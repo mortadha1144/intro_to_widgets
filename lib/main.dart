@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intro_to_widgets/my_button.dart';
-import 'package:intro_to_widgets/statefull.dart';
+import 'package:intro_to_widgets/shoping_list_item.dart';
 
 void main() {
-  runApp(const MyCounter());
-}
-
-class MyCounter extends StatelessWidget {
-  const MyCounter({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Counter(),
-        ),
+  runApp(
+    const MaterialApp(
+      home: ShoppingList(
+        product: [
+          Product(name: 'Eggs'),
+          Product(name: 'Flour'),
+          Product(name: 'Chocolate chips'),
+        ],
       ),
-    );
-  }
+    ),
+  );
 }
 
 class TutorialHome extends StatelessWidget {
