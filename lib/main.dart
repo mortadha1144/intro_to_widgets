@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:intro_to_widgets/my_button.dart';
+import 'package:intro_to_widgets/statefull.dart';
 
 void main() {
-  runApp(
-    const MaterialApp(
-      title: 'Flutter Tutorial',
-      home: TutorialHome(),
-    ),
-  );
+  runApp(const MyCounter());
+}
+
+class MyCounter extends StatelessWidget {
+  const MyCounter({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Counter(),
+        ),
+      ),
+    );
+  }
 }
 
 class TutorialHome extends StatelessWidget {
@@ -30,8 +42,14 @@ class TutorialHome extends StatelessWidget {
           ),
         ],
       ),
-      body: const Center(
-        child: Text('Hello, world!'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: const [
+            Text('Hello, world!'),
+            MyButton(),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
