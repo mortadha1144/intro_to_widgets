@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:intro_to_widgets/my_button.dart';
+import 'package:intro_to_widgets/my_shopping_list.dart';
 import 'package:intro_to_widgets/shoping_list_item.dart';
 
 void main() {
+  // const shoppingList = ShoppingList(
+  //       product: [
+  //         Product(name: 'Eggs'),
+  //         Product(name: 'Flour'),
+  //         Product(name: 'Chocolate chips'),
+  //       ],
+  //     );
   runApp(
     const MaterialApp(
-      home: ShoppingList(
-        product: [
-          Product(name: 'Eggs'),
-          Product(name: 'Flour'),
-          Product(name: 'Chocolate chips'),
-        ],
-      ),
+      home: MySoppingList(),
     ),
   );
 }

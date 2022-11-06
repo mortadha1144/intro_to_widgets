@@ -12,12 +12,12 @@ class ShoppingListItem extends StatelessWidget {
   ShoppingListItem({
     required this.product,
     required this.inCart,
-    required this.onCartCanged,
+    required this.onCartChanged,
   }) : super(key: ObjectKey(product));
 
   final Product product;
   final bool inCart;
-  final CartChangedCallback onCartCanged;
+  final CartChangedCallback onCartChanged;
 
   Color _getColor(BuildContext context) {
     return inCart //
@@ -37,7 +37,7 @@ class ShoppingListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        onCartCanged(product, inCart);
+        onCartChanged(product, inCart);
       },
       leading: CircleAvatar(
         backgroundColor: _getColor(context),
@@ -62,7 +62,7 @@ class ShoppingList extends StatefulWidget {
 
 class _ShoppingListState extends State<ShoppingList> {
   final _shoppingCart = <Product>{};
-  void __handleCartChanged(Product product, bool inCart) {
+  void _handleCartChanged(Product product, bool inCart) {
     setState(() {
       if (!inCart) {
         _shoppingCart.add(product);
@@ -84,7 +84,7 @@ class _ShoppingListState extends State<ShoppingList> {
           return ShoppingListItem(
             product: product,
             inCart: _shoppingCart.contains(product),
-            onCartCanged: __handleCartChanged,
+            onCartChanged: _handleCartChanged,
           );
         }).toList(),
       ),
